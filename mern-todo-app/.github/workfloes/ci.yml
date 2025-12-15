@@ -1,0 +1,36 @@
+name : build-and-test
+
+
+
+#triggers define when this workflow will run
+on:
+  push:
+    branches: [ main ,dev]
+  pull_request:
+    branches: [ main ,dev]
+
+
+
+
+
+
+ #define a job(multiple jobs also)
+    jobs:
+  build-nad -lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name : Checkout repository
+        uses: actions/checkout@v3
+
+
+        -name :  setup-node
+        uses: actions/setup-node@v3
+        with: node-version 20
+
+        -name:  insall-dependencies
+        workng-directory: ./server
+        run : npm ci
+
+        -name: lint backend
+        working-directory: ./server
+        run : npm run lint -- -- max-warnings=0
