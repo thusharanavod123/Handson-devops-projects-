@@ -6,7 +6,11 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "preview": "vite preview --host --port 5173"
+        "preview": "vite preview --host --port 5173",
+        "test": "echo \"Error: no test specified\" && exit 1 ",   
+        "lint": "eslint . --ext , .js,.jsx,.ts,.tsx",
+        "format": "prettier --write . --ext , .js,.jsx,.ts,.tsx  --fix" , 
+        "lint:fix": "eslint . --fix"
     },
     "dependencies": {
         "react": "^18.2.0",
